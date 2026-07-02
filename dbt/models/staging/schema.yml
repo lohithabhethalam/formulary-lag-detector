@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_formulary_lag
+    columns:
+      - name: application_number
+        tests:
+          - not_null
+          - unique
+      - name: drug_name
+        tests:
+          - not_null
+      - name: lag_days
+        tests:
+          - not_null
+      - name: lag_weeks
+        tests:
+          - not_null

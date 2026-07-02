@@ -1,0 +1,15 @@
+name: "formulary_lag_detector"
+version: "1.0.0"
+config-version: 2
+
+profile: "formulary_lag_detector"
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  formulary_lag_detector:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
