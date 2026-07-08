@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-PROJECT_DIR = "/opt/airflow/project"
+PROJECT_DIR = "/Users/lohithabhethalam/Desktop/formulary-lag-detector"
 
 default_args = {
     "owner": "lohitha",
@@ -45,12 +45,12 @@ with DAG(
 
     dbt_run = BashOperator(
         task_id="dbt_run",
-        bash_command=f"cd {PROJECT_DIR}/dbt && dbt run",
+        bash_command=f"cd {PROJECT_DIR}/dbt && /opt/homebrew/bin/dbt run --no-write-json",
     )
 
     dbt_test = BashOperator(
         task_id="dbt_test",
-        bash_command=f"cd {PROJECT_DIR}/dbt && dbt test",
+        bash_command=f"cd {PROJECT_DIR}/dbt && /opt/homebrew/bin/dbt test --no-write-json",
     )
 
     fetch_lag_batch >> spark_lag >> dbt_run >> dbt_test
