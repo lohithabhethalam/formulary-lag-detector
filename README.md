@@ -62,8 +62,8 @@ Data quality filters applied:
 
 ## Resilience
 
-Circuit breaker and retry are built in from day 1 — not
-added after the first failure like in a previous project.
+Circuit breaker and retry are built in from beginning — not
+added after the first failure like in a pbm-price-lens.
 
 Every openFDA API call goes through:
 
